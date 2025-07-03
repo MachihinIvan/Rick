@@ -5,6 +5,7 @@ import "./Rick.css";
 export const Rick = () => {
     const [episodes, setEpisodes] = useState([]);
     const [charactersByEpisodes, setCharactersByEpisodes] = useState({});
+    const [isLoadingEpisodes, setisLoadingEpisodes] = useState({})
     
     useEffect(()=>{
      fetchEpsodes().then((data)=>{
@@ -14,16 +15,37 @@ export const Rick = () => {
      );   
     }, []);
 
-    const hadleEpisodeClick = (episodes) =>{
+    const handleEpisodeClick = (episodes) =>{
         const ids = episodes.characters.map((character)=>{
             const id = character.split("/").pop();
             return id;
+
+
         });
+
+        setisLoadingEpisodes({...isLoadingEpisodes, [episodes.id]:true})
+
         fetchCharacters(ids).then((data)=>{
             console.log(data);
-            setCharactersByEpisodes({...charactersByEpisodes,[episodes.id]: data })
+            setCharactersByEpisodes({...charactersByEpisodes,[episodes.id]: data });
+            setisLoadingEpisodes({...isLoadingEpisodes, [episodes.id]:false})
         });
     };
+
+    
+
+    const getStatusClass = (status) => {
+        switch(status){
+            case "Alive":
+                return "characer-alive";
+            case 'Dead':
+                return'characer-dead';
+            default:
+                return"characer-unknown"
+            
+        }
+        
+    }
 
 
 return (
@@ -35,10 +57,23 @@ return (
                 onClick={() => handleEpisodeClick(episode)}
             >
                 <h1>{`${episode.episode}: ${episode.name}`}</h1>
-                <div>
+                <div className="chararactres-container">
+                    {isLoadingEpisodes[episode.id] && (
+                        <div className="loading">Загрузка...</div>
+                    )}
                     {charactersByEpisodes[episode.id]?.map((character) => (
-                        <div key={`${episode.id}-${character.id}`}>
-                            {character.name}
+                        <div key={`${episode.id}-${character.id}`} className={"character " + getStatusClass(character.status)}>
+                            <div className="character-left">
+                                <img src={character.image} alt={character.name} />
+                            </div>
+                            <div className="character-right">
+                                <h3>{character.name}</h3>
+                                <div>Вид:{character.species}</div>
+                                <div>Пол:{character.gender}</div>
+                                <div>Локация:{character.location.name}</div>
+                                
+                            </div>
+                            
                         </div>
                     ))}
                 </div>
@@ -47,3 +82,4 @@ return (
         ))}
     </div>
 )
+}

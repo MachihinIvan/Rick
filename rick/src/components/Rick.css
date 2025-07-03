@@ -12,3 +12,46 @@ body{
     background-color: rgb(10, 93, 235);
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.chararactres-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+
+.character{
+    border: 1px salmon;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    color: rgb(9, 1, 1);
+}
+
+.character-left{
+    flex: 2;
+}
+
+.characer-alive{
+    background-color: rgb(236, 220, 181);
+}
+
+.characer-dead{
+    background-color: rgb(250, 80, 80);
+}
+
+.characer-unknown{
+    background-color: gray;
+}
+
+.character-left img{
+    border-radius: 15px;
+}
+
+.character-right{
+    flex: 2;
+    padding: 10px;
+}

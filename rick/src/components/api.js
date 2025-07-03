@@ -7,8 +7,13 @@ export const fetchEpsodes = () => {
 }
 
 
-export const fetchCharacters = (ids) => {
+export const fetchCharacters = async (ids) => {
+    await sleep(1000);
     return fetch(`https://rickandmortyapi.com/api/character/${ids.join(",")}`)
     .then((response)=> response.json())
      
+}
+
+const sleep = (ms) =>{
+    return new Promise((res) => setTimeout(res, ms));
 }
