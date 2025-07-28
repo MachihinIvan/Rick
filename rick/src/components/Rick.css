@@ -18,6 +18,7 @@ body{
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px;
+    width: 520px;
 
 }
 
@@ -37,14 +38,17 @@ body{
 
 .characer-alive{
     background-color: rgb(236, 220, 181);
+    width: 520px;
 }
 
 .characer-dead{
     background-color: rgb(250, 80, 80);
+    width: 520px;
 }
 
 .characer-unknown{
     background-color: gray;
+    width: 520px;
 }
 
 .character-left img{

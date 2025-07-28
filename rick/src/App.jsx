@@ -1,11 +1,12 @@
-import { Rick } from "./components/Rick"
+import { Rick } from "./components/Rick";
+import { EpisodeContainer } from "./components/containers/EpisodeContainer";
 
 function App() {
   
 
   return (
     <>
-      <Rick />
+      <EpisodeContainer />
     </>
   );
 }
