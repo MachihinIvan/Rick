@@ -16,12 +16,7 @@ export const Rick = () => {
     }, []);
 
     const handleEpisodeClick = (episodes) =>{
-        const ids = episodes.characters.map((character)=>{
-            const id = character.split("/").pop();
-            return id;
-
-
-        });
+       
 
         setisLoadingEpisodes({...isLoadingEpisodes, [episodes.id]:true})
 
