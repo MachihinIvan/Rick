@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import {CharactersContainer} from "../containers/CharactersContainer"
 
-const EpisodeItem =({episode}) =>{
+export const EpisodeItem =({episode}) =>{
     const [open, setOpen] = useState(false);
 
     const ids = useMemo(() => episode.characters.map((character)=>{
