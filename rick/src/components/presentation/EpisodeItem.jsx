@@ -12,7 +12,7 @@ export const EpisodeItem =({episode}) =>{
     return(
         <div className="episode" onClick={()=> setOpen(true)}>
             <h3>{episode.episode + ":" + episode.name}</h3>
-            { open && <CharactersContainer ids={ids} />}
+            { open && <CharacterContainer ids={ids} />}
         </div>
     );
 }
