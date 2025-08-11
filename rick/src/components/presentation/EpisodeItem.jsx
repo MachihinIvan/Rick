@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import {CharactersContainer} from "../containers/CharactersContainer"
+import {CharacterContainer} from "../containers/CharactersContainer"
 
 export const EpisodeItem =({episode}) =>{
     const [open, setOpen] = useState(false);

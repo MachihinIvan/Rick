@@ -15,6 +15,6 @@ export const CharacterContainer = ({ ids }) => {
         });
     },[ids])
 
-    return <CharacterList character={characer} isLoading={isLoading} />;
+    return <CharacterList character={character} isLoading={isLoading} />;
     
 }

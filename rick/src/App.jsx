@@ -1,6 +1,6 @@
 
 import { Rick } from "./components/Rick"
-import {EpisodeContainer} from "./components/containers/EpisodeContainer";
+import {EpisodesContainer} from "./components/containers/EpisodeContainer";
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <EpisodeContainer />
+      <EpisodesContainer />
     </>
   );
 }
